@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/pages/chat_page.dart';
 import 'package:whatsapp_clone/theme.dart';
-import '../widgets.dart/popup_menu.dart';
+
+import '../widgets/popup_menu.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,6 +26,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
         backgroundColor: WhatsappTheme.primaryColor,
         title: const Text("Whatsapp"),
         actions: [
@@ -109,7 +112,7 @@ class _HomePageState extends State<HomePage>
         controller: tabcontroller,
         children: const [
           Text("Camera"),
-          Text("Chats"),
+          ChatPage(),
           Text("Status"),
           Text("Calls"),
         ],
