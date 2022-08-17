@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/theme.dart';
+import '../widgets.dart/popup_menu.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,20 +31,29 @@ class _HomePageState extends State<HomePage>
             icon: const Icon(Icons.search_rounded),
             onPressed: () {},
           ),
-          IconButton(
-            icon: const Icon(Icons.more_vert_rounded),
-            onPressed: () {},
-          ),
+          const PopupMenuItems(),
         ],
         bottom: TabBar(
           controller: tabcontroller,
           tabs: [
-            const Tab(
-              icon: Icon(Icons.camera_alt_rounded),
+            Container(
+              height: 25,
+              width: 90,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: const Tab(
+                icon: Icon(
+                  Icons.camera_alt_rounded,
+                  color: Colors.black,
+                  size: 20.0,
+                ),
+              ),
             ),
             Container(
-              height: 30,
-              width: 100,
+              height: 25,
+              width: 90,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30.0),
@@ -52,15 +62,45 @@ class _HomePageState extends State<HomePage>
                 child: Text(
                   "Chats",
                   style: TextStyle(
-                    color: Colors.black),
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
-            const Tab(
-              text: "Status",
+            Container(
+              height: 25,
+              width: 90,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: const Tab(
+                child: Text(
+                  "Status",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
-            const Tab(
-              text: "Calls",
+            Container(
+              height: 25,
+              width: 90,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: const Tab(
+                child: Text(
+                  "Calls",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -77,3 +117,5 @@ class _HomePageState extends State<HomePage>
     );
   }
 }
+
+
