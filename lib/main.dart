@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:whatsapp_clone/pages/chat_page.dart';
+import 'package:whatsapp_clone/utils/routes.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -18,8 +19,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      routes: {
+        "/": (context) => const HomePage(),
+        PageRoutes.homePageRoute: (context) => const HomePage(),
+        PageRoutes.chatPageRoute: (context) => const ChatPage(),
+      },
     );
   }
 }
-
