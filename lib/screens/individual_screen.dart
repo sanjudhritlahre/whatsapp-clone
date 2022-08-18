@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/theme.dart';
 import '../modal/chat_modal.dart';
 
 class IndividualPage extends StatefulWidget {
@@ -70,14 +71,14 @@ class _IndividualPageState extends State<IndividualPage> {
             ),
             onPressed: () {},
           ),
-           IconButton(
+          IconButton(
             icon: const Icon(
               CupertinoIcons.videocam_circle_fill,
               size: 30,
             ),
             onPressed: () {},
           ),
-           IconButton(
+          IconButton(
             icon: const Icon(
               CupertinoIcons.line_horizontal_3_decrease_circle_fill,
               size: 30,
@@ -85,6 +86,99 @@ class _IndividualPageState extends State<IndividualPage> {
             onPressed: () {},
           ),
         ],
+      ),
+      // ignore: sized_box_for_whitespace
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: [
+            ListView(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10.0),
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                      color: Colors.deepPurpleAccent,
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        CupertinoIcons.camera_on_rectangle_fill,
+                        size: 20.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      // ignore: sized_box_for_whitespace
+                      Container(
+                        width: MediaQuery.of(context).size.width - 100,
+                        child: Card(
+                          margin: const EdgeInsets.only(
+                            left: 5.0,
+                            bottom: 10.0,
+                          ),
+                          color: WhatsappTheme.lightOrangeColor,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          child: TextFormField(
+                            keyboardType: TextInputType.multiline,
+                            maxLines: 10,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                              hintText: "Send a messages...",
+                              border: InputBorder.none,
+                              prefixIcon: IconButton(
+                                icon: const Icon(CupertinoIcons.smiley_fill),
+                                onPressed: () {},
+                              ),
+                              suffixIcon: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(
+                                        CupertinoIcons.square_grid_2x2_fill),
+                                    onPressed: () {},
+                                  ),
+                                ],
+                              ),
+                              contentPadding: const EdgeInsets.all(15.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 5.0, bottom: 10.0),
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                      color: Colors.deepPurpleAccent,
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        CupertinoIcons.mic_circle_fill,
+                        size: 25.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
