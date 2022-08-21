@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/pages/chat_page.dart';
+import 'package:whatsapp_clone/home/floating_action_button.dart';
 import 'package:whatsapp_clone/utils/routes.dart';
-import 'screens/home_screen.dart';
+import 'contacts/select_contatcs.dart';
+import 'home/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,9 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const HomePage(),
         PageRoutes.homePageRoute: (context) => const HomePage(),
-        PageRoutes.chatPageRoute: (context) => const ChatPage(),
+        PageRoutes.chatPageRoute: (context) =>
+            const BottomFloatingActionButton(),
+        PageRoutes.selectContatcsRoute: (context) => const SelectContats(),
       },
     );
   }

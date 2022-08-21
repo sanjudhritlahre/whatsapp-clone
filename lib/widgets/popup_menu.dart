@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PopupMenuItems extends StatelessWidget {
@@ -7,9 +8,16 @@ class PopupMenuItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopupMenuButton<String>(
+    return PopupMenuButton<String> (
         // ignore: avoid_print
         onSelected: (value) => print(value),
+        icon: const Icon(
+          CupertinoIcons.line_horizontal_3_decrease_circle_fill,
+          size: 35.0,
+        ),
+        position: PopupMenuPosition.under,
+        splashRadius: 30.0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         itemBuilder: (BuildContext context) {
           return [
             const PopupMenuItem(
