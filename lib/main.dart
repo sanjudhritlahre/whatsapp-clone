@@ -1,11 +1,16 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/group/create_group.dart';
 import 'package:whatsapp_clone/home/floating_action_button.dart';
 import 'package:whatsapp_clone/utils/routes.dart';
+import 'camera/camera_screen.dart';
 import 'contacts/select_contatcs.dart';
 import 'home/home_screen.dart';
+import 'dart:async';
 
-void main() {
+Future <void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(const MyApp());
 }
 
@@ -22,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        "/": (context) => const CreateGroups(),
+        "/": (context) => const HomePage(),
         PageRoutes.homePageRoute: (context) => const HomePage(),
         PageRoutes.chatPageRoute: (context) =>
             const BottomFloatingActionButton(),

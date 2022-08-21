@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/contacts/contact_cards.dart';
+import 'package:whatsapp_clone/group/groups_selection.dart';
 import 'package:whatsapp_clone/modal/chat_modal.dart';
 
 class CreateGroups extends StatefulWidget {
@@ -110,27 +111,69 @@ class _CreateGroupsState extends State<CreateGroups> {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: contacts.length,
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {
-              if (contacts[index].addGroupUser == false) {
-                setState(() {
-                  contacts[index].addGroupUser = true;
-                  groups.add(contacts[index]);
-                });
+      body: Stack(
+        children: <Widget>[
+          ListView.builder(
+            itemCount: contacts.length + 1,
+            itemBuilder: (context, index) {
+              if (index == 0) {
+                return Container(
+                  height: groups.isNotEmpty ? 90 : 10,
+                );
               }
-              else {
-                  setState(() {
-                  contacts[index].addGroupUser = false;
-                  groups.remove(contacts[index]);
-                });
-              }
+              return InkWell(
+                onTap: () {
+                  if (contacts[index -1].addGroupUser == false) {
+                    setState(() {
+                      contacts[index - 1].addGroupUser = true;
+                      groups.add(contacts[index - 1]);
+                    });
+                  } else {
+                    setState(() {
+                      contacts[index -1].addGroupUser = false;
+                      groups.remove(contacts[index -1]);
+                    });
+                  }
+                },
+                child: ContatcCards(contact: contacts[index -1]),
+              );
             },
-            child: ContatcCards(contact: contacts[index]),
-          );
-        },
+          ),
+          groups.isNotEmpty
+              ? Column(
+                  children: <Widget>[
+                    Container(
+                      height: 90.0,
+                      color: Colors.white,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: contacts.length,
+                        itemBuilder: (context, index) {
+                          if (contacts[index].addGroupUser == true) {
+                            return InkWell(
+                              onTap: () {
+                                setState(() {
+                                  contacts[index].addGroupUser = false;
+                                  groups.remove(contacts[index]);
+                                });
+                              },
+                              child: GroupSelection(
+                                contact: contacts[index],
+                              ),
+                            );
+                          } else {
+                            return Container();
+                          }
+                        },
+                      ),
+                    ),
+                    const Divider(
+                      thickness: 1,
+                    ),
+                  ],
+                )
+              : Container(),
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/home/addmedia_popmenu.dart';
 import 'package:whatsapp_clone/home/floating_action_button.dart';
 import '../widgets/popup_menu.dart';
 
@@ -191,17 +192,26 @@ class _HomePageState extends State<HomePage>
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.deepPurpleAccent,
-              icon: Container(
-                height: 35,
-                width: 60,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                child: const Icon(
-                  CupertinoIcons.add_circled_solid,
-                  size: 25.0,
-                  color: Colors.greenAccent,
+              icon: InkWell(
+                onTap: () {
+                  showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    builder: (_) => const AddMediaPopMenu(),
+                  );
+                },
+                child: Container(
+                  height: 35,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  child: const Icon(
+                    CupertinoIcons.add_circled_solid,
+                    size: 25.0,
+                    color: Colors.greenAccent,
+                  ),
                 ),
               ),
               label: 'Add',
