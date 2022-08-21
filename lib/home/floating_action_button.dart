@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/custom/custom_card.dart';
+import 'package:whatsapp_clone/home/custom_card.dart';
 import 'package:whatsapp_clone/modal/chat_modal.dart';
 import '../contacts/select_contatcs.dart';
 
@@ -20,6 +20,7 @@ List<ChatModal> chats = [
     time: '04:00',
     currentMessage: "Hi, Everyone",
     status: '',
+    addGroupUser: false,
   ),
   ChatModal(
     name: "Romeyo Boy",
@@ -28,6 +29,7 @@ List<ChatModal> chats = [
     time: '11:00',
     currentMessage: "Hi, How are you?",
     status: '',
+    addGroupUser: false,
   ),
   ChatModal(
     name: "Creative Bloke",
@@ -36,6 +38,7 @@ List<ChatModal> chats = [
     time: '03:00',
     currentMessage: "Hi, What are you doing?",
     status: '',
+    addGroupUser: false,
   ),
   ChatModal(
     name: "Orisis World",
@@ -44,6 +47,7 @@ List<ChatModal> chats = [
     time: '06:00',
     currentMessage: "Hello, I have a nice day!",
     status: '',
+    addGroupUser: false,
   ),
   ChatModal(
     name: "Aman Tanda",
@@ -52,6 +56,7 @@ List<ChatModal> chats = [
     time: '02:30',
     currentMessage: "Hi, Good Evening!",
     status: '',
+    addGroupUser: false,
   ),
 ];
 

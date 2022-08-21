@@ -1,21 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/contacts/additional_card.dart';
 import 'package:whatsapp_clone/contacts/contact_cards.dart';
-import 'package:whatsapp_clone/group/create_group.dart';
 import 'package:whatsapp_clone/modal/chat_modal.dart';
 
-class SelectContats extends StatefulWidget {
-  const SelectContats({
+class CreateGroups extends StatefulWidget {
+  const CreateGroups({
     Key? key,
   }) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _SelectContatsState createState() => _SelectContatsState();
+  _CreateGroupsState createState() => _CreateGroupsState();
 }
 
-class _SelectContatsState extends State<SelectContats> {
+class _CreateGroupsState extends State<CreateGroups> {
   List<ChatModal> contacts = [
     ChatModal(
       name: "Sanju Dhritlahre",
@@ -59,10 +57,12 @@ class _SelectContatsState extends State<SelectContats> {
       isGroup: false,
       time: '02:30',
       currentMessage: "Hi, Good Evening!",
-      status: 'Web Developer', 
+      status: 'Web Developer',
       addGroupUser: false,
     ),
   ];
+
+  List<ChatModal> groups = [];
 
   @override
   Widget build(BuildContext context) {
@@ -78,14 +78,14 @@ class _SelectContatsState extends State<SelectContats> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             Text(
-              "Select Contacts",
+              "New Group",
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              "256 Contats",
+              "Add Participants",
               style: TextStyle(
                 fontSize: 13.0,
                 color: Colors.blueGrey,
@@ -111,32 +111,25 @@ class _SelectContatsState extends State<SelectContats> {
         ],
       ),
       body: ListView.builder(
-        itemCount: contacts.length + 2,
+        itemCount: contacts.length,
         itemBuilder: (context, index) {
-          if (index == 0) {
-            return InkWell(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const CreateGroups(),
-                ),
-              ),
-              child: const AdditionalCard(
-                name: "New Group",
-                icon: Icons.group_add_rounded,
-                subtitle: "Create A New Group",
-                color: Colors.deepPurpleAccent,
-              ),
-            );
-          } else if (index == 1) {
-            return const AdditionalCard(
-              name: "New Contact",
-              icon: Icons.person_add_alt_rounded,
-              subtitle: "Add A New Contact",
-              color: Colors.pinkAccent,
-            );
-          }
-          return ContatcCards(contact: contacts[index - 2]);
+          return InkWell(
+            onTap: () {
+              if (contacts[index].addGroupUser == false) {
+                setState(() {
+                  contacts[index].addGroupUser = true;
+                  groups.add(contacts[index]);
+                });
+              }
+              else {
+                  setState(() {
+                  contacts[index].addGroupUser = false;
+                  groups.remove(contacts[index]);
+                });
+              }
+            },
+            child: ContatcCards(contact: contacts[index]),
+          );
         },
       ),
     );

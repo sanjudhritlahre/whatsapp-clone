@@ -18,32 +18,29 @@ class AdditionalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
-      child: InkWell(
-        onTap: () {},
-        child: ListTile(
-          leading: CircleAvatar(
-            radius: 30.0,
-            backgroundColor: color,
-            child: Icon(
-              icon,
-              color: Colors.white,
-              size: 30.0,
-            ),
+      child: ListTile(
+        leading: CircleAvatar(
+          radius: 30.0,
+          backgroundColor: color,
+          child: Icon(
+            icon,
+            color: Colors.white,
+            size: 30.0,
           ),
-          title: Text(
-            name,
-            style: const TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-            ),
+        ),
+        title: Text(
+          name,
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
           ),
-          subtitle: Text(
-            subtitle,
-            style: const TextStyle(
-              fontSize: 13.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.blueGrey,
-            ),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: const TextStyle(
+            fontSize: 13.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.blueGrey,
           ),
         ),
       ),

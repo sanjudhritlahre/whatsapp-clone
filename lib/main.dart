@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/group/create_group.dart';
 import 'package:whatsapp_clone/home/floating_action_button.dart';
 import 'package:whatsapp_clone/utils/routes.dart';
 import 'contacts/select_contatcs.dart';
@@ -21,11 +22,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        "/": (context) => const HomePage(),
+        "/": (context) => const CreateGroups(),
         PageRoutes.homePageRoute: (context) => const HomePage(),
         PageRoutes.chatPageRoute: (context) =>
             const BottomFloatingActionButton(),
         PageRoutes.selectContatcsRoute: (context) => const SelectContats(),
+        PageRoutes.createGroupRoute: (context) => const CreateGroups(),
       },
     );
   }

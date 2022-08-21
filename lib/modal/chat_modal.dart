@@ -5,6 +5,7 @@ class ChatModal {
   String time;
   String currentMessage;
   String status;
+  bool addGroupUser;
 
   ChatModal({
     required this.name,
@@ -13,5 +14,6 @@ class ChatModal {
     required this.time,
     required this.currentMessage,
     required this.status,
+    required this.addGroupUser,
   });
 }
