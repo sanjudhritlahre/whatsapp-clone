@@ -4,4 +4,5 @@ class PageRoutes {
   static String chatPageRoute = "/chatPage";
   static String selectContatcsRoute = "/selectContacts";
   static String createGroupRoute = "/createGroup";
+  static String cameraViewRoute = "/cameraView";
 }

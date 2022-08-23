@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/chats/message_card.dart';
+import 'package:whatsapp_clone/chats/reply_card.dart';
 import 'popup_menu.dart';
 import '../modal/chat_modal.dart';
 
@@ -129,7 +131,21 @@ class _IndividualPageState extends State<IndividualPage> {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: Container(),
+            child: ListView(
+              shrinkWrap: true,
+              children: const [
+                MessageCard(),
+                ReplyCard(),
+                MessageCard(),
+                ReplyCard(),
+                MessageCard(),
+                ReplyCard(),
+                MessageCard(),
+                ReplyCard(),
+                MessageCard(),
+                ReplyCard(),
+              ],
+            ),
           ),
           WillPopScope(
             child: Container(
@@ -199,7 +215,8 @@ class _IndividualPageState extends State<IndividualPage> {
                                 showModalBottomSheet(
                                   backgroundColor: Colors.transparent,
                                   context: context,
-                                  builder: (builder) => const PopUpModalBottomSheet(),
+                                  builder: (builder) =>
+                                      const PopUpModalBottomSheet(),
                                 );
                               },
                             ),

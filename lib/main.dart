@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/camera/camera_view.dart';
 import 'package:whatsapp_clone/group/create_group.dart';
 import 'package:whatsapp_clone/home/floating_action_button.dart';
 import 'package:whatsapp_clone/utils/routes.dart';
@@ -8,7 +9,7 @@ import 'contacts/select_contatcs.dart';
 import 'home/home_screen.dart';
 import 'dart:async';
 
-Future <void> main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
   runApp(const MyApp());
@@ -17,7 +18,6 @@ Future <void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
             const BottomFloatingActionButton(),
         PageRoutes.selectContatcsRoute: (context) => const SelectContats(),
         PageRoutes.createGroupRoute: (context) => const CreateGroups(),
+        PageRoutes.cameraViewRoute: (context) => const CameraView(imagePath: '',),
       },
     );
   }
